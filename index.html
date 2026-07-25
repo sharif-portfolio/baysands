@@ -6,6 +6,12 @@
 <title>বে সেন্ডস ও বে মেরিনা — হোটেল ইউনিট মালিকানা</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="কলাতলী ও ইনানীতে বে সেন্ডস ও বে মেরিনায় প্রিমিয়াম হোটেল ইউনিট মালিকানার সীমিত সুযোগ। ফ্লেক্সিবল কিস্তিতে বিনিয়োগ করুন এবং পর্যটন মৌসুমে নিয়মিত ভাড়া আয় করুন।">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="bn_BD">
+<meta property="og:title" content="বে সেন্ডস ও বে মেরিনা — সীমিত হোটেল ইউনিট মালিকানা, কক্সবাজার">
+<meta property="og:description" content="কলাতলী ও ইনানীতে প্রিমিয়াম হোটেল ইউনিটের মালিকানা নিন। ফ্লেক্সিবল কিস্তি সুবিধা ও নিয়মিত ভাড়া আয়ের সুযোগ।">
+<meta name="twitter:card" content="summary">
 <style>
   :root{
     --deep-ocean:#0B3B45;
@@ -182,11 +188,52 @@
   }
   .video-wrap video{display:block; width:100%; height:auto;}
 
+  /* ---- Lead form ---- */
+  .lead-section{background:var(--sand-light); padding:90px 24px;}
+  .lead-card{
+    max-width:560px; margin:0 auto; background:var(--paper);
+    border:1px solid rgba(11,59,69,0.1); border-radius:4px;
+    padding:44px 38px; box-shadow:0 20px 50px rgba(11,59,69,0.08);
+  }
+  .lead-form{display:grid; gap:16px; margin-top:8px;}
+  .lead-form label{display:block; font-size:0.88rem; font-weight:600; color:var(--deep-ocean); margin-bottom:6px;}
+  .lead-form input, .lead-form select{
+    width:100%; padding:13px 14px; border:1px solid rgba(11,59,69,0.2); border-radius:2px;
+    font-family:'Hind Siliguri', sans-serif; font-size:0.98rem; color:var(--ink); background:#fff;
+  }
+  .lead-form input:focus, .lead-form select:focus{outline:2px solid var(--tide); outline-offset:1px;}
+  .lead-form button{
+    background:var(--gold); color:var(--ink); border:none; cursor:pointer;
+    padding:15px 20px; border-radius:2px; font-weight:700; font-size:1rem;
+    font-family:'Hind Siliguri', sans-serif; transition:background .2s ease;
+  }
+  .lead-form button:hover{background:#b0872f;}
+  .lead-form button:disabled{opacity:0.6; cursor:not-allowed;}
+  .lead-msg{margin-top:14px; font-size:0.92rem; font-weight:600; display:none;}
+  .lead-msg.show{display:block;}
+  .lead-msg.ok{color:var(--mid-teal);}
+  .lead-msg.err{color:#a33;}
+  .honeypot-field{position:absolute; left:-9999px; top:-9999px;}
+
+  /* ---- Sticky mobile CTA ---- */
+  .mobile-cta{display:none;}
+
   @media (max-width:760px){
     .features{grid-template-columns:1fr;}
     .prop-grid{grid-template-columns:1fr;}
     .proof-grid{grid-template-columns:1fr;}
     .btn-outline{display:block; margin:14px auto 0; width:fit-content;}
+    .lead-card{padding:34px 22px;}
+    body{padding-bottom:70px;}
+    .mobile-cta{
+      display:flex; position:fixed; left:0; right:0; bottom:0; z-index:60;
+      box-shadow:0 -6px 20px rgba(11,59,69,0.18);
+    }
+    .mobile-cta a{
+      flex:1; text-align:center; padding:16px 10px; font-weight:700; font-size:0.95rem;
+    }
+    .mobile-cta .call{background:var(--deep-ocean); color:var(--sand-light);}
+    .mobile-cta .wa{background:var(--gold); color:var(--ink);}
   }
 </style>
 </head>
@@ -321,6 +368,43 @@
   </div>
 </section>
 
+<section class="lead-section" id="callback">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">বিনামূল্যে পরামর্শ</div>
+      <h2>এখনই ফোন করার সময় নেই? কলব্যাক রিকোয়েস্ট করুন</h2>
+    </div>
+    <div class="lead-card">
+      <p style="color:#3a5155; font-size:0.95rem; margin-bottom:6px;">আপনার নাম ও নম্বর দিন, আমাদের প্রতিনিধি অল্প সময়ের মধ্যেই আপনাকে কল করবেন।</p>
+      <form name="callback-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="lead-form" id="lead-form">
+        <input type="hidden" name="form-name" value="callback-request">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <p class="honeypot-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div>
+          <label for="lead-name">আপনার নাম</label>
+          <input id="lead-name" type="text" name="name" required>
+        </div>
+        <div>
+          <label for="lead-phone">মোবাইল নম্বর</label>
+          <input id="lead-phone" type="tel" name="phone" required placeholder="01XXXXXXXXX">
+        </div>
+        <div>
+          <label for="lead-project">কোন প্রজেক্টে আগ্রহী</label>
+          <select id="lead-project" name="project">
+            <option value="বে সেন্ডস (কলাতলী)">বে সেন্ডস (কলাতলী)</option>
+            <option value="বে মেরিনা (ইনানী)">বে মেরিনা (ইনানী)</option>
+            <option value="এখনো সিদ্ধান্ত হয়নি">এখনো সিদ্ধান্ত হয়নি</option>
+          </select>
+        </div>
+        <button type="submit">কলব্যাক রিকোয়েস্ট পাঠান</button>
+        <div class="lead-msg" id="lead-msg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="final-cta">
   <h2>নিজের ইউনিট নিশ্চিত করার সময় এখনই</h2>
   <p>সীমিত সংখ্যক ইউনিট বাকি থাকায় দেরি করলে পছন্দের ইউনিট নাও পেতে পারেন। আজই যোগাযোগ করে বিস্তারিত জেনে নিন।</p>
@@ -335,6 +419,67 @@
   </div>
   দ্য বে কালেকশন — কলাতলী ও ইনানী, কক্সবাজার
 </footer>
+
+<div class="mobile-cta">
+  <a class="call" href="tel:+8801401216523">📞 কল করুন</a>
+  <a class="wa" href="https://wa.me/8801401216523?text=আমি%20ইউনিট%20সম্পর্কে%20জানতে%20চাই" target="_blank">💬 হোয়াটসঅ্যাপ</a>
+</div>
+
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var source = params.get('utm_source') || '';
+  var medium = params.get('utm_medium') || '';
+  var campaign = params.get('utm_campaign') || '';
+
+  document.querySelectorAll('input[name="utm_source"]').forEach(function(el){ el.value = source; });
+  document.querySelectorAll('input[name="utm_medium"]').forEach(function(el){ el.value = medium; });
+  document.querySelectorAll('input[name="utm_campaign"]').forEach(function(el){ el.value = campaign; });
+
+  if (campaign) {
+    var tag = ' [ক্যাম্পেইন: ' + campaign + ']';
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a){
+      a.setAttribute('href', a.getAttribute('href') + encodeURIComponent(tag));
+    });
+  }
+
+  document.querySelectorAll('.video-item video').forEach(function(v){
+    v.addEventListener('error', function(){
+      var item = v.closest('.video-item');
+      if (item) item.style.display = 'none';
+    });
+  });
+
+  var form = document.getElementById('lead-form');
+  var msg = document.getElementById('lead-msg');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function(res){
+        btn.disabled = false;
+        if (res.ok) {
+          msg.textContent = 'ধন্যবাদ! খুব শীঘ্রই আমাদের প্রতিনিধি আপনাকে কল করবেন।';
+          msg.className = 'lead-msg show ok';
+          form.reset();
+        } else {
+          msg.textContent = 'দুঃখিত, পাঠাতে সমস্যা হয়েছে। অনুগ্রহ করে হোয়াটসঅ্যাপে যোগাযোগ করুন।';
+          msg.className = 'lead-msg show err';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        msg.textContent = 'দুঃখিত, পাঠাতে সমস্যা হয়েছে। অনুগ্রহ করে হোয়াটসঅ্যাপে যোগাযোগ করুন।';
+        msg.className = 'lead-msg show err';
+      });
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
